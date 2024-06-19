@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { format } = require('util');
 module.exports = (db, upload, bucket) => {
-  // Example GET route for products
+
   router.get('/', async (req, res) => {
     try {
       const productsSnapshot = await db.collection('products').get();
@@ -15,7 +15,7 @@ module.exports = (db, upload, bucket) => {
     }
   });
 
-  // Example POST route to add a new product with image upload to Firebase Storage
+
   router.post('/', upload.single('image'), async (req, res) => {
     const { name, price } = req.body;
     if (!req.file) {
