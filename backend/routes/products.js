@@ -86,7 +86,52 @@ module.exports = (db, upload, bucket) => {
     blobStream.end(req.file.buffer);
   });
 
+// Route to edit a product (PUT /products/:productId) if you are an admin
+router.put('/:productId', verifyAdminToken, upload.single('image'), async (req, res) => {
+  const { name, price, description, quantity } = req.body;
+  const { productId } = req.params;
 
+  try {
+    const productRef = db.collection('products').doc(productId);
+    const productDoc = await productRef.get();
+
+    if (!productDoc.exists) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    let imageUrl = productDoc.data().imageUrl; // Use existing image URL by default
+
+    if (req.file) {
+      // If a new image file is provided, upload it and update imageUrl
+      const blob = bucket.file(Date.now() + path.extname(req.file.originalname));
+      const blobStream = blob.createWriteStream({
+        metadata: {
+          contentType: req.file.mimetype
+        }
+      });
+
+      blobStream.on('error', (err) => {
+        console.error('Error uploading to Firebase Storage:', err);
+        res.status(500).json({ error: 'Failed to upload image' });
+      });
+
+      blobStream.on('finish', async () => {
+        imageUrl = format(`https://storage.googleapis.com/${bucket.name}/${blob.name}`);
+        await productRef.update({ name, price, description, quantity, imageUrl });
+        res.json({ message: 'Product updated successfully' });
+      });
+
+      blobStream.end(req.file.buffer);
+    } else {
+      // If no new image file is provided, update other fields only
+      await productRef.update({ name, price, description, quantity });
+      res.json({ message: 'Product updated successfully' });
+    }
+  } catch (error) {
+    console.error('Error updating product:', error);
+    res.status(500).json({ error: 'Failed to update product' });
+  }
+});
 
   //fetch  all products from db
 
