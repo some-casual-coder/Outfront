@@ -28,10 +28,6 @@ app.use(bodyParser.json());
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-//it is here that we shall server the static files from the frontend i.e, index.html, the static files will make use of clientside scripts in the js folder
-//i.e script src = js/product.js
-app.use(express.static('frontend'));
-
 app.get("/", (req, res) => {
   console.log("I am up and running");
   res.send("Server is up and running");
@@ -39,11 +35,11 @@ app.get("/", (req, res) => {
 
 const productRouter = require("./routes/products")(db, upload, bucket); // Ensure correct path and arguments
 const cartRouter = require("./routes/cart")(db);
-// const adminRouter = require('./routes/admin')(db, upload, bucket)
+const adminRouter = require('./routes/admin')(db, upload, bucket)
 
 app.use("/cart", cartRouter);
 app.use("/products", productRouter); 
-// app.use("/admin", adminRouter)
+app.use("/admin", adminRouter)
 
 const PORT = process.env.PORT || 61361;
 app.listen(PORT, () => {
