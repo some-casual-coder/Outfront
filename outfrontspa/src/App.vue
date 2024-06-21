@@ -9,11 +9,11 @@
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <div class="cart-items" @click="router.push({ name: 'CartView' })">
       <p>Items in Cart: {{store.cart.length }}</p>
     </div>
-  </header>
+  </header> -->
   <main>
     <RouterView />
   </main>
