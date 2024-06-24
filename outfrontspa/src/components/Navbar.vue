@@ -50,7 +50,7 @@
     }
 }
 
-.contacts .nav-item > a:hover{
+.contacts .nav-item>a:hover {
     cursor: default;
     color: black;
 }
@@ -99,6 +99,16 @@
 .nav-item.call:hover:before {
     top: 0;
     left: 0;
+}
+
+.nav-item.cart {
+    font-size: 1.2rem;
+    margin-top: 15px;
+
+    & a:hover{
+        cursor: pointer;
+        color: #ff6e01;
+    }
 }
 
 .contacts .nav-item a {
@@ -195,20 +205,23 @@
             <span class="bar"></span>
         </div>
         <ul class="nav no-search" :class="{ 'mobile-nav': showMenu }">
-            <li class="nav-item"><a href="#about">About</a></li>
-            <li class="nav-item"><a href="#services">Services</a></li>
-            <li class="nav-item"><a @click="router.push({ name: 'ComingSoon' })">Shop</a></li>
+            <li class="nav-item"><a @click="navigateToHome('about')">About</a></li>
+            <li class="nav-item"><a @click="navigateToHome('services')">Services</a></li>
+            <li class="nav-item"><a @click="router.push({ name: 'shop' })">Shop</a></li>
         </ul>
         <img :src="logoImage" alt="Company Logo">
         <ul class="nav no-search contacts" :class="{ 'mobile-nav': showMenu }">
             <button class="nav-item call"><a href="tel:+254112856539">Call us</a></button>
-            <li class="nav-item"><a>Mon - Fri <br>9AM - 8PM</a></li>
+            <li class="nav-item" v-if="isHomePage"><a>Mon - Fri <br>9AM - 8PM</a></li>
+            <li class="nav-item cart" v-else @click="router.push({ name: 'CartView' })"><a>Cart({{ store.cart.length }})</a></li>
         </ul>
     </nav>
 </template>
 
 <script>
 import logoImage from '@/assets/logo2.png'
+import { computed } from "vue";
+import { productsStore } from "@/stores/products";
 
 export default {
     name: 'Navbar',
@@ -222,7 +235,32 @@ export default {
 </script>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
+const store = productsStore();
+
+const isHomePage = computed(() => {
+    return route.name === 'Home'
+});
+
+const navigateToHome = (section) => {
+    if (route.name !== 'Home') {
+        router.push({ name: 'Home' }).then(() => {
+            setTimeout(() => {
+                const element = document.getElementById(section);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        });
+    } else {
+        const element = document.getElementById(section);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
+
 </script>
