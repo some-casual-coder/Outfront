@@ -37,12 +37,22 @@ export const productsStore = defineStore('products', {
     },
 
     addToCart(product) {
-      this.cart.push(product);
+      const existingProduct = this.cart.find(item => item.id === product.id);
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        this.cart.push({ ...product, quantity: 1, selected: true });
+      }
       this.saveCartToStorage();
     },
 
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id != id);
+      this.saveCartToStorage();
+    },
+
+    updateCart(updatedCart) {
+      this.cart = updatedCart;
       this.saveCartToStorage();
     },
 
