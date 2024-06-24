@@ -1,31 +1,39 @@
 <template>
     <Navbar />
     <div class="checkout">
-        <h1>Checkout</h1>
+        <h2>Contact Details</h2>
         <div class="checkout-page">
-            <form @submit="handleSubmit">
-                <div>
-                    <label>
-                        <input type="checkbox" v-model="isPickupAtOffices"> Pickup at Offices
-                    </label>
+            <div class="checkout-container">
+                <form @submit="handleSubmit">
+                    <div>
+                        <label>
+                            <input type="checkbox" v-model="isPickupAtOffices"> Pickup at Offices
+                        </label>
+                    </div>
+                    <div class="contacts-container">
+                        <div>
+                            <input type="text" v-model="town" placeholder="Town" :required="!isPickupAtOffices"
+                                :disabled="isPickupAtOffices">
+                            <input type="text" v-model="county" placeholder="County" :required="!isPickupAtOffices"
+                                :disabled="isPickupAtOffices">
+                            <input type="text" v-model="suburb" placeholder="Suburb" :required="!isPickupAtOffices"
+                                :disabled="isPickupAtOffices">
+                        </div>
+                        <div>
+                            <input type="tel" v-model="phoneNumber" placeholder="Phone Number" required>
+                            <input type="email" v-model="email" placeholder="Email" required><br>
+                            <textarea v-model="additionalNotes" placeholder="Additional Notes"
+                                :required="!isPickupAtOffices"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" :disabled="!isFormValid">Save</button>
+                </form>
+                <div v-if="showModal" class="checkout-details">
+                    <h3>Contacts</h3>
+                    <p><span>{{ phoneNumber }}</span> <span>({{ email }})</span></p>
+                    <h3>Address</h3>
+                    <p>{{ suburb }}, {{ town }}, {{ county }}</p>
                 </div>
-                <input type="tel" v-model="phoneNumber" placeholder="Phone Number" required>
-                <input type="email" v-model="email" placeholder="Email" required>
-                <input type="text" v-model="town" placeholder="Town" :required="!isPickupAtOffices"
-                    :disabled="isPickupAtOffices">
-                <input type="text" v-model="county" placeholder="County" :required="!isPickupAtOffices"
-                    :disabled="isPickupAtOffices">
-                <input type="text" v-model="suburb" placeholder="Suburb" :required="!isPickupAtOffices"
-                    :disabled="isPickupAtOffices">
-                <textarea v-model="additionalNotes" placeholder="Additional Notes"
-                    :required="!isPickupAtOffices"></textarea>
-                <button type="submit" :disabled="!isFormValid">Save</button>
-            </form>
-            <div v-if="showModal" class="checkout-details">
-                <h3>Contact Details</h3>
-                <p><span>{{ phoneNumber }}</span> <span>{{ email }}</span></p>
-                <h1>Address Details</h1>
-                <p>{{ suburb }}, {{ town }}, {{ county }}</p>
             </div>
             <div class="payment-options">
                 <h2>Select Payment Method</h2>
@@ -41,11 +49,29 @@
                         </div>
                     </div>
                 </div>
-                <p>{{ paymentOptions.find(option => option.value === selectedOption)?.description }}</p>
+                <div class="refund-policy-agreement">
+                    <input type="checkbox" id="refundPolicyAgreement" v-model="agreedToRefundPolicy">
+                    <label for="refundPolicyAgreement">
+                        By continuing with this payment I agree to the <a href="#"
+                            @click.prevent="openRefundPolicyModal">Refund Policy</a>
+                    </label>
+                </div>
+                <!-- Refund Policy Modal -->
+                <div v-if="showRefundPolicyModal" class="modal">
+                    <div class="modal-content">
+                        <h3>About Refunds and Returns</h3>
+                        <p>{{ refundPolicyText }}</p>
+                        <button @click="closeRefundPolicyModal">Close</button>
+                    </div>
+                </div>
+                <!-- <p>{{ paymentOptions.find(option => option.value === selectedOption)?.description }}</p> -->
             </div>
         </div>
-        <p>Total to Pay: Kes{{ checkoutTotal }}</p>
-        <button @click="makePayment" :disabled="!selectedOption || !isFormValid">Make Payment</button>
+        <p class="toPay"><span>Total to Pay:</span> <span>${{ checkoutTotal }}</span></p>
+        <div class="makePayment">
+            <button @click="proceedToPayment" :disabled="!selectedOption || !isFormValid || !agreedToRefundPolicy">Make
+                Payment</button>
+        </div>
     </div>
 </template>
 
@@ -71,6 +97,36 @@ export default defineComponent({
             additionalNotes: '',
             showModal: false,
             selectedOption: null,
+            agreedToRefundPolicy: false,
+            showRefundPolicyModal: false,
+            refundPolicyText: `Refund Policy for Outfront Spa \n
+
+1. Service Discrepancy:
+   If there is a significant discrepancy between the services described or images displayed and the actual services provided, please report this to our staff within 2 hours of your appointment start time. We will arrange for appropriate remediation, which may include providing the correct service, offering an alternative service of equal value, or issuing a refund.
+<br>
+2. Cancellations:
+   - For cancellations received 24 hours or more before your scheduled appointment, 80% of the booking fee will be refunded.
+   - To request a refund, please fill out our refund form available on our website and submit it to the address provided below.
+   - Refunds will be processed within three working days from the date of receipt of the completed form.
+<br>
+3. Quality of Service:
+   If you experience any issues with the quality of our services, please inform our staff immediately. We will make every effort to rectify the situation. If a satisfactory resolution cannot be reached, we may offer a partial or full refund, or a credit for future services, at our discretion.
+<br>
+4. Change of Mind:
+   We do not normally provide refunds if you simply change your mind or make the wrong decision. We encourage our clients to carefully consider their choices before booking.
+<br>
+5. Gift Certificates and Prepaid Services:
+   Gift certificates and prepaid services are non-refundable but may be transferable to another person or service, subject to our approval.
+<br>
+Please note: This refund policy applies to spa services only. For product purchases, please refer to our separate product return policy.
+<br>
+For all refund requests and inquiries, please contact:<br>
+Outfront Spa<br>
+Maralal Oasis, Argwings Kodhek Rd, Nairobi<br>
+0112856539 / 0711265193<br>
+info@outfrontspa.com<br>
+
+We strive to ensure your complete satisfaction with our services and will address any concerns promptly and fairly.`,
             paymentOptions: [
                 {
                     id: "iPay",
@@ -91,11 +147,10 @@ export default defineComponent({
     },
     computed: {
         isFormValid() {
-            if (this.isPickupAtOffices) {
-                return this.phoneNumber && this.email;
-            } else {
-                return this.phoneNumber && this.email && this.town && this.county && this.suburb;
-            }
+            return (this.isPickupAtOffices ?
+                (this.phoneNumber && this.email) :
+                (this.phoneNumber && this.email && this.town && this.county && this.suburb)) &&
+                this.agreedToRefundPolicy;
         }
     },
     methods: {
@@ -128,8 +183,19 @@ export default defineComponent({
         },
 
         proceedToPayment() {
-            console.log("Paying...");
-        }
+            if (this.selectedOption && this.isFormValid && this.agreedToRefundPolicy) {
+                console.log("Processing payment...");
+                // Implement your payment logic here
+            }
+        },
+
+        openRefundPolicyModal() {
+            this.showRefundPolicyModal = true;
+        },
+        closeRefundPolicyModal() {
+            this.showRefundPolicyModal = false;
+        },
+
     },
     watch: {
         isPickupAtOffices(newValue) {
@@ -161,15 +227,71 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.d-none {
-    display: none;
+.checkout {
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+
+    & h2 {
+        font-family: 'Playwrite ES';
+        text-align: center;
+        color: #ff6e01;
+    }
 }
 
-.container {
-    margin-top: 30px;
+.checkout-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    & button {
+        padding: 8px 15px;
+        border: 1px solid rgb(130, 130, 130);
+        border-radius: 8px;
+        font-weight: 600;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #ffeada;
+            border: 1px solid #ffeada;
+        }
+    }
+
+    & button:disabled:hover {
+        cursor: not-allowed;
+    }
+}
+
+.checkout-details {
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    & h3 {
+        color: #ff6e01;
+    }
+}
+
+.contacts-container {
+    margin-top: 10px;
+
+    & input,
+    textarea {
+        border: 1px solid #ff6e01;
+        margin: 0;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 7px;
+        font-size: 1rem;
+    }
+}
+
+.d-none {
+    display: none;
 }
 
 .radio-tile-group {
@@ -179,14 +301,14 @@ onMounted(() => {
 }
 
 .radio-tile img {
-    width: 100px;
+    width: 170px;
 }
 
 .radio-tile-group .input-container {
     position: relative;
-    height: 7rem;
-    width: 7rem;
-    margin: 0.5rem;
+    height: 6rem;
+    width: 14rem;
+    margin: 0.5rem 3.5rem;
 }
 
 .radio-tile-group .input-container .radio-button {
@@ -207,16 +329,10 @@ onMounted(() => {
     justify-content: center;
     width: 100%;
     height: 100%;
-    border: 2px solid #079ad9;
+    border: 2px solid #ff6e01;
     border-radius: 5px;
     padding: 1rem;
     transition: transform 300ms ease;
-}
-
-.radio-tile-group .input-container .icon svg {
-    fill: #079ad9;
-    width: 3rem;
-    height: 3rem;
 }
 
 .radio-tile-group .input-container .radio-tile-label {
@@ -225,23 +341,98 @@ onMounted(() => {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #079ad9;
+    color: black;
 }
 
 .radio-tile-group .input-container .radio-button:checked+.radio-tile {
-    background-color: #079ad9;
-    border: 2px solid #079ad9;
+    background-color: #4caf50;
+    border: 2px solid #4caf50;
     color: white;
-    transform: scale(1.1, 1.1);
+    transform: scale(1.05, 1.05);
 }
 
 .radio-tile-group .input-container .radio-button:checked+.radio-tile .icon svg {
     fill: white;
-    background-color: #079ad9;
+    background-color: #4caf50;
 }
 
 .radio-tile-group .input-container .radio-button:checked+.radio-tile .radio-tile-label {
     color: white;
-    background-color: #079ad9;
+    background-color: #4caf50;
+}
+
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+
+    & button {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+}
+
+.refund-policy-agreement {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.toPay {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+    font-size: 1.3rem;
+    font-weight: 1000;
+}
+
+.makePayment {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 20px;
+
+    & button {
+        padding: 10px 20px;
+        border: 3px solid #ff6e01;
+        color: #ff6e01;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #ff6e01;
+            color: white;
+        }
+    }
+
+    & button:disabled {
+        border: 3px solid #888;
+        color: #888;
+
+        &:hover {
+            cursor: not-allowed;
+            background-color: white;
+            color: #888;
+        }
+    }
 }
 </style>

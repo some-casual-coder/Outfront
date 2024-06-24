@@ -7,8 +7,8 @@ export const productsStore = defineStore('products', {
   state: () => ({
     products: [],
     cart: [],
-    displayedItems: 20,
-    itemsPerLoad: 20,
+    displayedItems: 12,
+    itemsPerLoad: 16,
   }),
 
   getters: {

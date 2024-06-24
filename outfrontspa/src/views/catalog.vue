@@ -15,7 +15,7 @@
                 <img :src="product.thumbnail" alt="Product Image">
             </div>
             <h3 class="product-title" :title="product.title">{{ product.title }}</h3>
-            <p>Kes. {{ product.price }}</p>
+            <p>$.{{ product.price }}</p>
         </div>
 
         <div v-if="showNotification" class="notification">
@@ -327,5 +327,9 @@ onMounted(() => {
         width: 100%;
         margin-right: 0;
     }
+}
+
+.load-actions{
+    display: none;
 }
 </style>

@@ -544,6 +544,31 @@ export default defineComponent({
 
 </script>
 
+<script setup>
+import { useRouter, useRoute } from "vue-router";
+
+const router = useRouter();
+const route = useRoute();
+
+const navigateToHome = (section) => {
+    if (route.name !== 'Home') {
+        router.push({ name: 'Home' }).then(() => {
+            setTimeout(() => {
+                const element = document.getElementById(section);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        });
+    } else {
+        const element = document.getElementById(section);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
+</script>
+
 <template>
     <Navbar />
     <div class="landing-header">
@@ -560,7 +585,7 @@ export default defineComponent({
             d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,122.7C672,117,768,75,864,80C960,85,1056,139,1152,144C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
     </svg>
-    <section id="about"class="about-us">
+    <section id="about" class="about-us">
         <h1>about us</h1>
         <div class="container">
             <img src="../assets/images/about-us.png" alt="About">
@@ -792,9 +817,9 @@ export default defineComponent({
             <div class="details">
                 <div class="links">
                     <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Shop</a>
+                    <a @click="navigateToHome('about')">About</a>
+                    <a @click="navigateToHome('about')">Services</a>
+                    <a @click="router.push({ name: 'shop' })">Shop</a>
                 </div>
                 <div class="location">
                     <p>Maralal Oasis, Argwings Kodhek Rd, Nairobi</p>
