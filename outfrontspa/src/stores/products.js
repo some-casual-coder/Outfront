@@ -39,9 +39,9 @@ export const productsStore = defineStore('products', {
     addToCart(product) {
       const existingProduct = this.cart.find(item => item.id === product.id);
       if (existingProduct) {
-        existingProduct.quantity++;
+        existingProduct.number++;
       } else {
-        this.cart.push({ ...product, quantity: 1, selected: true });
+        this.cart.push({ ...product, number: 1, selected: true });
       }
       this.saveCartToStorage();
     },
