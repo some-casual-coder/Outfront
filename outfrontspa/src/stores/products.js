@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
 
+const CART_STORAGE_KEY = 'user_cart';
+const TWO_WEEKS_IN_MS = 14 * 24 * 60 * 60 * 1000; // 14 days in milliseconds
+
 export const productsStore = defineStore('products', {
   state: () => ({
     products: [],
@@ -23,11 +26,10 @@ export const productsStore = defineStore('products', {
         .then(res => res.json())
         .then(json => {
           this.products = json.products;
-          console.log(this.products);
         })
     },
 
-    loadMore(){
+    loadMore() {
       this.displayedItems = Math.min(
         this.displayedItems + this.itemsPerLoad,
         this.products.length
@@ -35,11 +37,39 @@ export const productsStore = defineStore('products', {
     },
 
     addToCart(product) {
-      this.cart.push(product)
+      this.cart.push(product);
+      this.saveCartToStorage();
     },
 
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id != id);
+      this.saveCartToStorage();
+    },
+
+    saveCartToStorage() {
+      const cartData = {
+        items: this.cart,
+        timestamp: new Date().getTime()
+      };
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartData));
+    },
+
+    loadCartFromStorage() {
+      const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (storedCart) {
+        const { items, timestamp } = JSON.parse(storedCart);
+        const now = new Date().getTime();
+        if (now - timestamp < TWO_WEEKS_IN_MS) {
+          this.cart = items;
+        } else {
+          localStorage.removeItem(CART_STORAGE_KEY);
+        }
+      }
+    },
+
+    clearCart() {
+      this.cart = [];
+      localStorage.removeItem(CART_STORAGE_KEY);
     }
   }
 })
