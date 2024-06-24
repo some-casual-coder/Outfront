@@ -77,7 +77,7 @@ const viewProduct = (id) => {
 }
 
 const addToCart = (product) => {
-    store.addToCart({ ...product, quantity: 1 });
+    store.addToCart({ ...product, number: 1 });
     showNotification.value = true;
     setTimeout(() => {
         showNotification.value = false;
@@ -88,7 +88,7 @@ onMounted(() => {
     store.fetchProductsFromDB()
 })
 </script>
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playwrite+ES:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .catalog-header {
@@ -150,14 +150,14 @@ onMounted(() => {
 
             & svg {
                 position: absolute;
-                visibility: hidden;
-                width: 20px;
+                display: none;
+                width: 17px;
                 background-color: white;
                 border-radius: 50px;
                 padding: 5px;
                 top: 10px;
                 right: 10px;
-                z-index: 1;
+                /* z-index: 100; */
 
                 &:hover {
                     background-color: rgb(27, 27, 27, 0.2);
@@ -195,10 +195,10 @@ onMounted(() => {
 
 .product:hover {
     cursor: pointer;
+}
 
-    & .img-container svg {
-        visibility: visible;
-    }
+.product:hover .img-container svg {
+    display: block;
 }
 
 .product:hover img {

@@ -7,15 +7,20 @@
         </div>
         <div class="product-details">
             <h2>{{ selectedProduct.title }}</h2>
+            <h2 class="price">Kes. {{ selectedProduct.price }}</h2>
+            <hr>
             <p>{{ selectedProduct.description }}</p>
-            <h2>Kes. {{ selectedProduct.price }}</h2>
 
+            <p class="stock">In Stock</p>
             <div class="quantity-selector">
                 <button @click="decreaseQuantity" :disabled="quantity <= 1">-</button>
                 <input type="number" v-model.number="quantity" min="1" />
                 <button @click="increaseQuantity">+</button>
             </div>
-            <button @click="addToCart(selectedProduct)">Add to Cart</button>
+            <div class="product-actions">
+                <button @click="addToCart(selectedProduct)" class="up">Buy Now</button>
+                <button @click="addToCart(selectedProduct)">Add to Cart</button>
+            </div>
         </div>
         <div v-if="showNotification" class="notification">
             Added to cart
@@ -62,7 +67,7 @@ const decreaseQuantity = () => {
 };
 
 const addToCart = (product) => {
-    store.addToCart({ ...product, quantity: quantity.value })
+    store.addToCart({ ...product, number: quantity.value })
     showNotification.value = true;
     setTimeout(() => {
         showNotification.value = false;
@@ -71,9 +76,119 @@ const addToCart = (product) => {
 
 </script>
 
-<style>
-.product{
+<style scoped>
+.product {
     font-family: 'Roboto', sans-serif;
+    width: 85%;
+    margin: auto;
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+
+    & .product-image {
+        background-color: #ffebdc;
+        border-radius: 10px;
+    }
+
+    & .product-details {
+        width: 60%;
+
+        & p {
+            font-size: 1.1rem;
+            color: #242424;
+            letter-spacing: 1px;
+        }
+
+        & .price {
+            color: #ff6e01;
+        }
+    }
+
+
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.quantity-selector button {
+    background-color: #ffffff;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 1000;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    border-radius: 0 30px 30px 0;
+}
+
+.quantity-selector button:first-child {
+    margin-left: 0;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    border-radius: 30px 0 0 30px;
+}
+
+.quantity-selector input {
+    width: 25px;
+    padding: 7px 5px;
+    padding-left: 18px;
+    font-size: 1.1rem;
+    text-align: center;
+    border: none;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    font-weight: 600;
+}
+
+.product-actions button {
+    margin-right: 20px;
+    border-radius: 7px;
+    background: #ff6e01;
+    border: 2px solid #ff6e01;
+    line-height: 1;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 1em 3em;
+    transition: 0.3s ease-in-out;
+}
+
+.product-actions button:last-child {
+    background-color: white;
+    border: 1px solid #707070;
+    color: black;
+
+    &:hover {
+        cursor: pointer;
+        color: #ff6e01;
+    }
+}
+
+.product-details .stock {
+    background-color: #bbffbe;
+    width: 100px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 10px;
+}
+
+.product-details hr {
+    border: 1px solid #feddc4;
+}
+
+.up:hover,
+.up:focus {
+    cursor: pointer;
+    border-color: #4caf50;
+    box-shadow: inset 0 -3.25em 0 0 #4caf50;
 }
 
 .notification {
@@ -82,31 +197,10 @@ const addToCart = (product) => {
     left: 50%;
     transform: translateX(-50%);
     background-color: #4caf50;
-    /* Green background */
     color: white;
-    /* White text */
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    /* Make sure it's on top of other elements */
-}
-
-.quantity-selector {
-    display: flex;
-    align-items: center;
-}
-
-.quantity-selector button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #ddd;
-    border: none;
-    cursor: pointer;
-}
-
-.quantity-selector input {
-    width: 50px;
-    text-align: center;
 }
 </style>
