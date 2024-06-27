@@ -57,11 +57,17 @@
                     </label>
                 </div>
                 <!-- Refund Policy Modal -->
-                <div v-if="showRefundPolicyModal" class="modal">
-                    <div class="modal-content">
-                        <h3>About Refunds and Returns</h3>
-                        <p>{{ refundPolicyText }}</p>
-                        <button @click="closeRefundPolicyModal">Close</button>
+                <div v-if="showRefundPolicyModal" class="modal" @click="closeRefundPolicyModal">
+                    <div class="modal-content" @click.stop>
+                        <h3>Refund Policy for Outfront Spa Limited</h3>
+                        <div v-html="refundPolicyText"></div>
+                        <!-- <button @click="closeRefundPolicyModal">Close</button> -->
+                        <div class="refund-policy-agreement">
+                            <input type="checkbox" id="refundPolicyAgreement" v-model="agreedToRefundPolicy">
+                            <label for="refundPolicyAgreement">
+                                I accept the terms and conditions outlined above
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <!-- <p>{{ paymentOptions.find(option => option.value === selectedOption)?.description }}</p> -->
@@ -73,11 +79,13 @@
                 Payment</button>
         </div>
     </div>
+    <Footer />
 </template>
 
 <script>
 import { defineComponent, onMounted } from 'vue';
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 import iPayLogo from '@/assets/images/ipay.png';
 import sasapayLogo from '@/assets/images/sasapay.png';
 
@@ -85,6 +93,7 @@ export default defineComponent({
     name: 'CheckoutView',
     components: {
         Navbar,
+        Footer,
     },
     data() {
         return {
@@ -99,34 +108,96 @@ export default defineComponent({
             selectedOption: null,
             agreedToRefundPolicy: false,
             showRefundPolicyModal: false,
-            refundPolicyText: `Refund Policy for Outfront Spa \n
+            refundPolicyText: `
+        <p>At Outfront Spa Limited, we strive to ensure you have a positive experience every time you engage with our services or purchase our products. However, we understand that there may be occasions when you wish to return items. This Refund Policy outlines the conditions under which we accept returns and issue refunds for items purchased from Outfront Spa Limited. It also specifies when returns will not be accepted or refunds issued.</p>
+        
+        <h4>1. Return Period and Conditions for Acceptance of Returns</h4>
+        <p>Subject to the rules set out in this Refund Policy, Outfront Spa Limited offers returns for most items within 14 days of purchase or delivery ("the returns period"). We do not accept returns, for any reason whatsoever, after the returns period has lapsed. This does not affect your legal rights. You may return items purchased from Outfront Spa Limited within the returns period for the reasons listed below.</p>
+        
+        <table>
+          <tr>
+            <th>Reason for Return</th>
+            <th>Applicable Product Category</th>
+          </tr>
+          <tr>
+            <td>I changed my mind</td>
+            <td>All product categories except: skincare products, fragrances, hair care, personal care items (e.g., combs, brushes), spa treatment packages</td>
+          </tr>
+          <tr>
+            <td>Size is correct but doesn't fit as expected</td>
+            <td>Clothing items only</td>
+          </tr>
+          <tr>
+            <td>Item received broken or defective</td>
+            <td>All product categories</td>
+          </tr>
+          <tr>
+            <td>Packaging was damaged</td>
+            <td>All product categories</td>
+          </tr>
+          <tr>
+            <td>Item received with missing parts or accessories</td>
+            <td>All product categories</td>
+          </tr>
+          <tr>
+            <td>Item received used or expired</td>
+            <td>All product categories except digital products</td>
+          </tr>
+          <tr>
+            <td>Item seems to be fake / unauthentic</td>
+            <td>All product categories</td>
+          </tr>
+          <tr>
+            <td>Wrong item / color / size / model</td>
+            <td>All product categories</td>
+          </tr>
+        </table>
+        
+        <p>We will only accept returns of items that are unused and in the same condition you received them, with their original packaging and seal intact where applicable, unless the item became defective or damaged after reasonable use (in accordance with manufacturers' guidelines where applicable) during the returns period.</p>
+        
+        <h4>2. Items That Cannot Be Returned</h4>
+        <p>We do not accept returns of certain product categories for health and hygiene reasons. Customer safety is paramount to us, so certain product categories cannot be returned due to health and hygiene reasons, or if they may deteriorate or expire rapidly. You shall only be entitled to return and refund in respect of these items if you received the wrong item, a damaged or defective item, or a fake or inauthentic item. You are not entitled to a refund or return of these product categories if you have changed your mind.</p>
+        
+        <p><strong>We do not accept returns of customized items.</strong> We do not accept returns of goods made, configured, or inscribed to your specification (e.g., personalized engravings, embroidery). We will only accept returns if the items are damaged or defective upon arrival, or materially different from what was ordered.</p>
+        
+        <p><strong>We do not accept returns of items that you have damaged after delivery.</strong> We do not accept returns of used or worn items, unless the reason for return is that the item stopped working or became damaged or defective after reasonable use (in accordance with manufacturers' guidelines where applicable) during the returns period.</p>
+        
+        <h4>3. Packaging Returns</h4>
+        <p>When returning an item for any reason, you must do so in the exact condition you received it from Outfront Spa Limited, with its original packaging and all tags and labels attached. Returned items are your responsibility until they reach us, so please ensure they are packaged properly and cannot get damaged on the way. You must not include in the packaging with the returned item any item not pertaining to the returned item as originally received from Outfront Spa Limited.</p>
+        
+        <h4>4. Refunds</h4>
+        <p>If we accept your return, or if you order but do not receive an item, we aim to refund you the purchase price of the item within 14 days of receiving your returned item. For incorrect, defective, or damaged items, you will also be refunded for the full cost of delivery of the returned items, once your return is processed. If the return is not the result of an error by Outfront Spa Limited (e.g., you changed your mind or the size does not fit as expected), you will not receive any refund on delivery fees. The refund request form will state which payment methods for receipt of refunds are available to you.</p>
+        
+        <h4>5. Rejected Return and Refund Requests</h4>
+        <p>All items are inspected on return to verify the return reasons provided. If your return request is not approved by Outfront Spa Limited, you will not receive any refund of the purchase price or the delivery fees, and we will make 2 attempts to redeliver within 7 business days. If both re-delivery attempts are unsuccessful, we will notify you immediately and hold the item for a further 30 days from the date of the initial notification. Our notification will include details about the pick-up location and opening hours. If you do not collect the item within the required period, you will forfeit the item, and it will become the property of Outfront Spa Limited. We may dispose of it in any manner we deem appropriate, such as by sale, charitable donation, recycling, or destruction.</p>
+        
+        <h4>6. No Exchange</h4>
+        <p>We do not offer exchanges. If you would like a different size or color, please return your unwanted item and place a new order.</p>
+        
+        <p>For further inquiries, please contact our customer service team at <a href="mailto:support@outfrontspaltd.com">support@outfrontspa.com</a> or call us at +254 112 856 539.</p>
+        
+        <style>
+        .modal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
 
-1. Service Discrepancy:
-   If there is a significant discrepancy between the services described or images displayed and the actual services provided, please report this to our staff within 2 hours of your appointment start time. We will arrange for appropriate remediation, which may include providing the correct service, offering an alternative service of equal value, or issuing a refund.
-<br>
-2. Cancellations:
-   - For cancellations received 24 hours or more before your scheduled appointment, 80% of the booking fee will be refunded.
-   - To request a refund, please fill out our refund form available on our website and submit it to the address provided below.
-   - Refunds will be processed within three working days from the date of receipt of the completed form.
-<br>
-3. Quality of Service:
-   If you experience any issues with the quality of our services, please inform our staff immediately. We will make every effort to rectify the situation. If a satisfactory resolution cannot be reached, we may offer a partial or full refund, or a credit for future services, at our discretion.
-<br>
-4. Change of Mind:
-   We do not normally provide refunds if you simply change your mind or make the wrong decision. We encourage our clients to carefully consider their choices before booking.
-<br>
-5. Gift Certificates and Prepaid Services:
-   Gift certificates and prepaid services are non-refundable but may be transferable to another person or service, subject to our approval.
-<br>
-Please note: This refund policy applies to spa services only. For product purchases, please refer to our separate product return policy.
-<br>
-For all refund requests and inquiries, please contact:<br>
-Outfront Spa<br>
-Maralal Oasis, Argwings Kodhek Rd, Nairobi<br>
-0112856539 / 0711265193<br>
-info@outfrontspa.com<br>
+        .modal-content th,
+        .modal-content td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-We strive to ensure your complete satisfaction with our services and will address any concerns promptly and fairly.`,
+        .modal-content th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        </style>
+        
+        `,
             paymentOptions: [
                 {
                     id: "iPay",
@@ -204,6 +275,12 @@ We strive to ensure your complete satisfaction with our services and will addres
                 this.county = ''
                 this.suburb = ''
             }
+        },
+
+        agreedToRefundPolicy(newValue) {
+            if (newValue) {
+                this.showRefundPolicyModal = false;
+            }
         }
     }
 })
@@ -220,9 +297,6 @@ onMounted(() => {
     if (total) {
         checkoutTotal.value = parseFloat(total);
     }
-
-    // Optional: Clear the total from session storage after retrieving it
-    // sessionStorage.removeItem('checkoutTotal');
 });
 </script>
 
@@ -364,22 +438,26 @@ onMounted(() => {
 
 .modal {
     position: fixed;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
+    position: fixed;
     background-color: #fefefe;
-    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    border-radius: 10px;
+    width: 60%;
+    height: 70%;
+    overflow: auto;
+    z-index: 1;
+    border-radius: 5px;
 
     & button {
         background-color: white;
@@ -387,6 +465,8 @@ onMounted(() => {
         border-radius: 5px;
     }
 }
+
+
 
 .refund-policy-agreement {
     margin-top: 50px;

@@ -12,39 +12,50 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: { title: "Home" }
     },
 
     {
       path: '/shop',
       name: 'shop',
-      component: Catalog
+      component: Catalog,
+      meta: { title: "Shop" }
     },
 
     {
       path: '/product/:id',
       name: 'ProductView',
-      component: ProductDetail
+      component: ProductDetail,
+      meta: { title: "Product Details" }
     },
 
     {
       path: '/cart',
       name: 'CartView',
-      component: Cart
+      component: Cart,
+      meta: { title: "Cart" }
     },
 
     {
       path: '/checkout',
       name: 'Checkout',
-      component: Checkout
+      component: Checkout,
+      meta: { title: "Checkout" }
     },
 
     {
       path: '/coming_soon',
       name: 'ComingSoon',
-      component: ComingSoon
+      component: ComingSoon,
+      meta: { title: "Coming Soon" }
     }
   ]
 })
+
+router.beforeResolve((to, from, next) => {
+  document.title = to.meta.title || "Outfront Spa";
+  next();
+});
 
 export default router

@@ -30,16 +30,19 @@
             </button>
         </div>
     </div>
+    <Footer />
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import Navbar from '@/components/Navbar.vue';
+import Footer from "@/components/Footer.vue";
 
 export default defineComponent({
     name: 'CatalogView',
     components: {
-        Navbar
+        Navbar,
+        Footer
     },
 });
 </script>
@@ -216,7 +219,6 @@ onMounted(() => {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    /* Make sure it's on top of other elements */
 }
 
 .load-actions {

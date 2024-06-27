@@ -72,6 +72,10 @@
     }
 }
 
+.nav-item.opening{
+    text-align: center;
+}
+
 .nav-item.call:before {
     content: "";
     position: absolute;
@@ -205,14 +209,14 @@
             <span class="bar"></span>
         </div>
         <ul class="nav no-search" :class="{ 'mobile-nav': showMenu }">
-            <li class="nav-item"><a @click="navigateToHome('about')">About</a></li>
+            <li class="nav-item"><a @click="navigateToHome('home')">Home</a></li>
             <li class="nav-item"><a @click="navigateToHome('services')">Services</a></li>
             <li class="nav-item"><a @click="router.push({ name: 'shop' })">Shop</a></li>
         </ul>
         <img :src="logoImage" alt="Company Logo">
         <ul class="nav no-search contacts" :class="{ 'mobile-nav': showMenu }">
             <button class="nav-item call"><a href="tel:+254112856539">Call us</a></button>
-            <li class="nav-item" v-if="isHomePage"><a>Mon - Fri <br>9AM - 8PM</a></li>
+            <li class="nav-item opening" v-if="isHomePage"><a>Everyday<br>9AM - Midnight</a></li>
             <li class="nav-item cart" v-else @click="router.push({ name: 'CartView' })"><a>Cart({{ store.cart.length }})</a></li>
         </ul>
     </nav>

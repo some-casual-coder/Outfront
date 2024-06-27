@@ -15,7 +15,7 @@
             <div class="cart-header">
                 <p>ITEM</p>
                 <p>QUANTITY</p>
-                <p>PRICE (Kes)</p>
+                <p>PRICE ($)</p>
                 <p>ACTIONS</p>
             </div>
             <div class="cart-items">
@@ -43,7 +43,7 @@
         <div class="checkout-container">
             <div class="checkout-summary">
                 <div>
-                    <p class="total-price"><span>Total Price</span> Kes.{{ totalPrice }} ({{ totalSelectedItems }}
+                    <p class="total-price"><span>Total Price</span> $.{{ totalPrice }} ({{ totalSelectedItems }}
                         items)
                     </p>
                     <p>Shipment costs not included</p>
@@ -54,7 +54,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>

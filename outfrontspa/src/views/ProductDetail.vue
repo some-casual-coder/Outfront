@@ -7,7 +7,7 @@
         </div>
         <div class="product-details">
             <h2>{{ selectedProduct.title }}</h2>
-            <h2 class="price">Kes. {{ selectedProduct.price }}</h2>
+            <h2 class="price">$. {{ selectedProduct.price }}</h2>
             <hr>
             <p>{{ selectedProduct.description }}</p>
 
@@ -18,12 +18,13 @@
                 <button @click="increaseQuantity">+</button>
             </div>
             <div class="product-actions">
-                <button @click="addToCart(selectedProduct)" class="up">Buy Now</button>
+                <button @click="toCheckout(selectedProduct)" class="up">Buy Now</button>
                 <button @click="addToCart(selectedProduct)">Add to Cart</button>
             </div>
         </div>
         <div v-if="showNotification" class="notification">
             Added to cart
+            <div ref="progressBar" class="progress-bar"></div>
         </div>
     </div>
 </template>
@@ -35,7 +36,7 @@ import Navbar from '@/components/Navbar.vue';
 export default defineComponent({
     name: 'ProductDetails',
     components: {
-        Navbar
+        Navbar,
     },
 })
 </script>
@@ -54,6 +55,7 @@ const selectedProduct = computed(() => {
 })
 
 const showNotification = ref(false);
+const progressBar = ref(null);
 const quantity = ref(1);
 
 const increaseQuantity = () => {
@@ -69,10 +71,26 @@ const decreaseQuantity = () => {
 const addToCart = (product) => {
     store.addToCart({ ...product, number: quantity.value })
     showNotification.value = true;
+
+    if (progressBar.value) {
+        progressBar.value.style.width = '100%';
+    }
+
+    setTimeout(() => {
+        if (progressBar.value) {
+            progressBar.value.style.width = '0%';
+        }
+    }, 50);
+
     setTimeout(() => {
         showNotification.value = false;
     }, 3000);
 }
+
+const toCheckout = (product) => {
+    sessionStorage.setItem('checkoutTotal', product.price);
+    router.push({ name: 'Checkout' });
+};
 
 </script>
 
@@ -193,7 +211,7 @@ const addToCart = (product) => {
 
 .notification {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #4caf50;
@@ -202,5 +220,17 @@ const addToCart = (product) => {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    overflow: hidden;
+    width: auto;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    transition: width 3s linear;
 }
 </style>
