@@ -1,19 +1,16 @@
 <script setup>
-  import { useRoute, useRouter } from 'vue-router';
-  import { productsStore } from './stores/products';
+import { useRoute, useRouter } from 'vue-router';
+import { productsStore } from './stores/products';
 
-  const router = useRouter()
+const router = useRouter()
 
-  const store = productsStore()
+const store = productsStore()
+
+store.loadCartFromStorage()
 
 </script>
 
 <template>
-  <!-- <header>
-    <div class="cart-items" @click="router.push({ name: 'CartView' })">
-      <p>Items in Cart: {{store.cart.length }}</p>
-    </div>
-  </header> -->
   <main>
     <RouterView />
   </main>
