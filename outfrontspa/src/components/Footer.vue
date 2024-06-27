@@ -22,7 +22,7 @@
                 </div>
                 <div class="location">
                     <p>4<sup>th</sup> Floor, Maralal Oasis, Argwings Kodhek Rd, Nairobi</p>
-                    <p>Mon - Fri (9AM - 8PM)</p>
+                    <p>Everyday (9AM - Midnight)</p>
                     <p>0112856539 / 0711265193</p>
                     <p>info@outfrontspa.com</p>
                 </div>
