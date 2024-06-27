@@ -126,9 +126,13 @@ export default defineComponent({
       <li>Mobile payments from local providers (each business outlet has a unique paybill number)</li>
       <li>Cheque and Banker’s Draft (service delivery upon clearance, within 5 working days)</li>
     </ul>
-    <p>Payment in full is required prior to service delivery.</p>
+    <p> To protect your security and to prevent credit card fraud where possible, we reserve the right for proof of Identity on ALL purchases.</p>
+    <p>We also accept payment via Cheque and Banker’s Draft but deliveries will only be made once the Cheque or Banker’s Draft clears from the bank within 5 working days</p>
+    <p>All Cheques or Bankers Draft must be made out in the name SKY-SWIFT LIMITED</p>
+    <p>We accept Mobile payments from local mobile providers ,To protect your security and to prevent mobile fraud where possible, we have provided unique paybill numbers for each business outlet to receive payments. We reserve the right for proof of Identity on ALL purchases.</p>
+    <p>Payment in full (including finalization of any lay-by arrangements) is required prior to extending service and payment after service delivery cannot be accepted.</p>
 
-    <p><strong>Refunds & Returns</strong></p>
+    <p><strong>About Refunds & Returns</strong></p>
     <ol>
       <li>
         <p><strong>Service Discrepancy:</strong> If there is a significant discrepancy between the service described or images displayed and the actual service provided, please report this to our staff within 2 hours of your appointment start time. We will arrange for appropriate remediation, which may include providing the correct service, offering an alternative service of equal value, or issuing a refund.</p>
@@ -151,10 +155,12 @@ export default defineComponent({
     <p>Services purchased will not be reserved until a minimum of 50% of the invoice value has been paid.</p>
 
     <p><strong>Storage & Delivery</strong></p>
-    <p>For goods purchased, the maximum storage time in our warehouse is not more than 14 days. Delays in paying for delivery may result in additional storage and insurance costs.</p>
+    <p>For goods purchased the maximum storage time in our warehouse is not more than 14 days as delays in paying for delivery by you results in us incurring additional storage and insurance costs.</p>
+    <p>In the event that you fail to make full payment 48hrs to delivery after notification by us, we will charge you for those costs at a rate of USD. 1,000/= per day per order.</p>
 
-    <p><strong>Contact Information</strong></p>
-    <p>To ensure prompt service delivery, please provide accurate contact details including your email address and telephone number.</p>
+    <p><strong>Why Your Contact Details are Important!</strong></p>
+    <p>We want to make sure you receive your service as soon as possible. Please be sure to provide your exact email address and telephone number. Incorrect information may cause a delay in processing your purchases.</p>
+    <p>Please note the Sales Staff name and the date of orders placed / purchase for any future query.</p>
 
     <p><strong>Product and Service Availability</strong></p>
     <p>All products and services are subject to availability.</p>

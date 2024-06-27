@@ -19,6 +19,7 @@
                     <a @click="navigateToHome('about')">About</a>
                     <a @click="navigateToHome('services')">Services</a>
                     <a @click="router.push({ name: 'shop' })">Shop</a>
+                    <a @click="openRefundClaimForm">Refund Claim Form</a>
                 </div>
                 <div class="location">
                     <p>4<sup>th</sup> Floor, Maralal Oasis, Argwings Kodhek Rd, Nairobi</p>
@@ -42,6 +43,11 @@ export default {
     computed: {
         currentYear() {
             return new Date().getFullYear();
+        }
+    },
+    methods: {
+        openRefundClaimForm(){
+            window.open('/Refund-Claim-Form.pdf', '_blank');
         }
     }
 };

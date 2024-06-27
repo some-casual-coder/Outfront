@@ -74,6 +74,11 @@
 
 .nav-item.opening{
     text-align: center;
+    margin-top: 10px;
+
+    & a{
+        font-size: 0.8rem;
+    }
 }
 
 .nav-item.call:before {

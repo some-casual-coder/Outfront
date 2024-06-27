@@ -335,7 +335,8 @@ const route = useRoute();
 
     & .tagline::after {
         content: "";
-        left: 43%;
+        left: 50%;
+        transform: translateX(-50%);
         position: absolute;
         top: 40px;
         width: 100px;
