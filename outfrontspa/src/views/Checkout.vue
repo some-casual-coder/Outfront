@@ -108,91 +108,108 @@ export default defineComponent({
             agreedToRefundPolicy: false,
             showRefundPolicyModal: false,
             refundPolicyText: `
-        <p>At Outfront Spa Limited, we strive to ensure you have a positive experience every time you engage with our services or purchase our products. However, we understand that there may be occasions when you wish to return items. This Refund Policy outlines the conditions under which we accept returns and issue refunds for items purchased from Outfront Spa Limited. It also specifies when returns will not be accepted or refunds issued.</p>
-        
-        <h4>1. Return Period and Conditions for Acceptance of Returns</h4>
-        <p>Subject to the rules set out in this Refund Policy, Outfront Spa Limited offers returns for most items within 14 days of purchase or delivery ("the returns period"). We do not accept returns, for any reason whatsoever, after the returns period has lapsed. This does not affect your legal rights. You may return items purchased from Outfront Spa Limited within the returns period for the reasons listed below.</p>
-        
-        <table>
-          <tr>
-            <th>Reason for Return</th>
-            <th>Applicable Product Category</th>
-          </tr>
-          <tr>
-            <td>I changed my mind</td>
-            <td>All product categories except: skincare products, fragrances, hair care, personal care items (e.g., combs, brushes), spa treatment packages</td>
-          </tr>
-          <tr>
-            <td>Size is correct but doesn't fit as expected</td>
-            <td>Clothing items only</td>
-          </tr>
-          <tr>
-            <td>Item received broken or defective</td>
-            <td>All product categories</td>
-          </tr>
-          <tr>
-            <td>Packaging was damaged</td>
-            <td>All product categories</td>
-          </tr>
-          <tr>
-            <td>Item received with missing parts or accessories</td>
-            <td>All product categories</td>
-          </tr>
-          <tr>
-            <td>Item received used or expired</td>
-            <td>All product categories except digital products</td>
-          </tr>
-          <tr>
-            <td>Item seems to be fake / unauthentic</td>
-            <td>All product categories</td>
-          </tr>
-          <tr>
-            <td>Wrong item / color / size / model</td>
-            <td>All product categories</td>
-          </tr>
-        </table>
-        
-        <p>We will only accept returns of items that are unused and in the same condition you received them, with their original packaging and seal intact where applicable, unless the item became defective or damaged after reasonable use (in accordance with manufacturers' guidelines where applicable) during the returns period.</p>
-        
-        <h4>2. Items That Cannot Be Returned</h4>
-        <p>We do not accept returns of certain product categories for health and hygiene reasons. Customer safety is paramount to us, so certain product categories cannot be returned due to health and hygiene reasons, or if they may deteriorate or expire rapidly. You shall only be entitled to return and refund in respect of these items if you received the wrong item, a damaged or defective item, or a fake or inauthentic item. You are not entitled to a refund or return of these product categories if you have changed your mind.</p>
-        
-        <p><strong>We do not accept returns of customized items.</strong> We do not accept returns of goods made, configured, or inscribed to your specification (e.g., personalized engravings, embroidery). We will only accept returns if the items are damaged or defective upon arrival, or materially different from what was ordered.</p>
-        
-        <p><strong>We do not accept returns of items that you have damaged after delivery.</strong> We do not accept returns of used or worn items, unless the reason for return is that the item stopped working or became damaged or defective after reasonable use (in accordance with manufacturers' guidelines where applicable) during the returns period.</p>
-        
-        <h4>3. Packaging Returns</h4>
-        <p>When returning an item for any reason, you must do so in the exact condition you received it from Outfront Spa Limited, with its original packaging and all tags and labels attached. Returned items are your responsibility until they reach us, so please ensure they are packaged properly and cannot get damaged on the way. You must not include in the packaging with the returned item any item not pertaining to the returned item as originally received from Outfront Spa Limited.</p>
-        
-        <h4>4. Refunds</h4>
-        <p>If we accept your return, or if you order but do not receive an item, we aim to refund you the purchase price of the item within 14 days of receiving your returned item. For incorrect, defective, or damaged items, you will also be refunded for the full cost of delivery of the returned items, once your return is processed. If the return is not the result of an error by Outfront Spa Limited (e.g., you changed your mind or the size does not fit as expected), you will not receive any refund on delivery fees. The refund request form will state which payment methods for receipt of refunds are available to you.</p>
-        
-        <h4>5. Rejected Return and Refund Requests</h4>
-        <p>All items are inspected on return to verify the return reasons provided. If your return request is not approved by Outfront Spa Limited, you will not receive any refund of the purchase price or the delivery fees, and we will make 2 attempts to redeliver within 7 business days. If both re-delivery attempts are unsuccessful, we will notify you immediately and hold the item for a further 30 days from the date of the initial notification. Our notification will include details about the pick-up location and opening hours. If you do not collect the item within the required period, you will forfeit the item, and it will become the property of Outfront Spa Limited. We may dispose of it in any manner we deem appropriate, such as by sale, charitable donation, recycling, or destruction.</p>
-        
-        <h4>6. No Exchange</h4>
-        <p>We do not offer exchanges. If you would like a different size or color, please return your unwanted item and place a new order.</p>
-        
-        <p>For further inquiries, please contact our customer service team at <a href="mailto:support@outfrontspaltd.com">support@outfrontspa.com</a> or call us at +254 112 856 539.</p>
+
+    <p><strong>Introduction</strong></p>
+    <p>By reading this notice, you agree to be bound by the following terms and conditions. Please read them carefully. Your usage of this notice indicates your acceptance and understanding of these terms and conditions. If you purchase or seek services from Outfront Spa Limited, it indicates your acceptance and understanding of these terms and conditions.</p>
+
+    <p><strong>Disclaimer for Products Sold</strong></p>
+    <p>Except as expressly stated herein, Outfront Spa Limited makes no representations or warranties, either express or implied, of any kind with respect to products sold. In no event shall Outfront Spa Limited, its Directors, Employees, and Representatives be liable for direct, indirect, consequential, or punitive damages related to the products and services sold.</p>
+
+    <p><strong>About Services</strong></p>
+    <p>Outfront Spa Limited offers a range of spa services and sells spa-related items to enhance your spa experience. Our commitment is to provide exceptional customer service and ensure your satisfaction with our services and products.</p>
+
+    <p><strong>Payment & Payment Methods</strong></p>
+    <p>All prices displayed for services and products are in Kenya Shillings or United States dollars (USD) and are inclusive of VAT.</p>
+    <p>We accept the following payment methods:</p>
+    <ul>
+      <li>Visa & MasterCard credit cards</li>
+      <li>Mobile payments from local providers (each business outlet has a unique paybill number)</li>
+      <li>Cheque and Banker’s Draft (service delivery upon clearance, within 5 working days)</li>
+    </ul>
+    <p>Payment in full is required prior to service delivery.</p>
+
+    <p><strong>Refunds & Returns</strong></p>
+    <ol>
+      <li>
+        <p><strong>Service Discrepancy:</strong> If there is a significant discrepancy between the service described or images displayed and the actual service provided, please report this to our staff within 2 hours of your appointment start time. We will arrange for appropriate remediation, which may include providing the correct service, offering an alternative service of equal value, or issuing a refund.</p>
+      </li>
+      <li>
+        <p><strong>Cancellations:</strong> For cancellations received 24 hours or more before your scheduled appointment, 80% of the booking fee will be refunded. To request a refund, please fill out our refund form downloadable from the Outfront Spa Limited website and submit it to the address provided below. Refunds will be processed within three working days from the date of receipt of the completed form.</p>
+      </li>
+      <li>
+        <p><strong>Quality of Service:</strong> If you experience any issues with the quality of our services, please inform our staff immediately. We will make every effort to rectify the situation. If a satisfactory resolution cannot be reached, we may offer a partial or full refund, or a credit for future services, at our discretion.</p>
+      </li>
+      <li>
+        <p><strong>Change of Mind:</strong> We do not normally provide refunds if you simply change your mind or make the wrong decision. We encourage our clients to carefully consider their choices before booking.</p>
+      </li>
+      <li>
+        <p><strong>Product Purchases:</strong> Products purchased from Outfront Spa Limited may be eligible for exchange or refund if they are faulty, wrongly described, different from the sample shown, or do not perform their intended function. Please contact us promptly to discuss any issues with purchased products.</p>
+      </li>
+    </ol>
+
+    <p><strong>Bookings</strong></p>
+    <p>Services purchased will not be reserved until a minimum of 50% of the invoice value has been paid.</p>
+
+    <p><strong>Storage & Delivery</strong></p>
+    <p>For goods purchased, the maximum storage time in our warehouse is not more than 14 days. Delays in paying for delivery may result in additional storage and insurance costs.</p>
+
+    <p><strong>Contact Information</strong></p>
+    <p>To ensure prompt service delivery, please provide accurate contact details including your email address and telephone number.</p>
+
+    <p><strong>Product and Service Availability</strong></p>
+    <p>All products and services are subject to availability.</p>
+
+    <p><strong>Images</strong></p>
+    <p>Outfront Spa Limited strives to ensure that images of products and services displayed on the website closely represent the actual service provided. Minor variations may occur due to maintenance; however, these will not compromise the quality of service.</p>
+
+    <p><strong>Pricing Policy</strong></p>
+    <p>We maintain a competitive pricing policy for our products and services.</p>
+
+    <p><strong>Customer Service</strong></p>
+    <p>For any inquiries or to discuss your purchase, please contact:</p>
+    <ul>
+      <li>Booking: +254 733 555 576</li>
+      <li>Main Office: +254 733 555 504</li>
+      <li>Customer Service Department, Outfront Spa Limited, Maralal Oasis, Argwings Kodhek Rd, Nairobi, Kenya</li>
+      <li>Email: info@outfrontspa.com</li>
+    </ul>
+
+    <p>In all cases, remedies offered by us shall not affect your statutory rights or our statutory responsibilities.</p>
+
+    <p><em>E&OE</em> (Errors & Omissions Excepted)</p>
         
         <style>
-        .modal-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+.refund-policy {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
 
-        .modal-content th,
-        .modal-content td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+.policy-section {
+  margin-bottom: 20px;
+}
 
-        .modal-content th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
+.policy-section h3 {
+  font-size: 20px;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.policy-section p, .policy-section ul {
+  font-size: 16px;
+  color: #666;
+}
+
+.policy-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.policy-section ul li {
+  margin-bottom: 5px;
+}
 
         </style>
         
