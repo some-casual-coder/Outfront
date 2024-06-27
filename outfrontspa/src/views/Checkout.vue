@@ -79,7 +79,6 @@
                 Payment</button>
         </div>
     </div>
-    <Footer />
 </template>
 
 <script>
