@@ -23,7 +23,7 @@
                 </div>
                 <div class="location">
                     <p>4<sup>th</sup> Floor, Maralal Oasis, Argwings Kodhek Rd, Nairobi</p>
-                    <p>Everyday (9AM - Midnight)</p>
+                    <p>OPEN 24/7</p>
                     <p>0112856539 / 0711265193</p>
                     <p>info@outfrontspa.com</p>
                 </div>
@@ -180,6 +180,61 @@ footer {
         top: 0;
         right: 0;
         opacity: 0.05;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+        padding: 10px 15px 20px 15px;
+        text-align: center;
+
+        &>div:first-child {
+            & img {
+                width: 200px;
+            }
+        }
+
+        & .contact-details {
+            flex-direction: column;
+            align-items: flex-start;
+
+            & .about {
+                width: 100%;
+                text-align: justify;
+
+                & h3 {
+                    text-align: center;
+                }
+
+                & span a {
+                    padding: 8px 20px;
+                    /* margin: 5px 7px 0 0; */
+                }
+
+                & span a:nth-child(3) {
+                    margin-right: 0;
+                }
+            }
+
+            & .details {
+                flex-direction: column-reverse;
+
+                & .location {
+                    margin-top: 15px;
+                    text-align: left;
+                }
+
+                & .links {
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-bottom: 15px;
+
+                    & a {
+                        color: orange;
+                    }
+                }
+            }
+        }
     }
 }
 </style>
