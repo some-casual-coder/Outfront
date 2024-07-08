@@ -10,16 +10,17 @@
         </div>
     </div>
     <svg class="svg-about" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
-        <path fill="white" fill-opacity="1"
+        <path fill="#ffd3b1" fill-opacity="1"
             d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,122.7C672,117,768,75,864,80C960,85,1056,139,1152,144C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
     </svg>
     <section id="about" class="about-us">
-        <h1>about us</h1>
+        <h1>About Us</h1>
         <div class="container">
             <img src="../assets/images/about-us.png" alt="About">
             <p>
-                Welcome to <span>Out Front Spa</span>, your relaxation haven! Our experienced therapists are dedicated
+                Welcome to <span>Out Front Spa</span>, your ultimate relaxation haven! Our experienced therapists are
+                dedicated
                 to providing
                 you with a holistic wellness experience. We offer a variety of massage services to address your specific
                 needs. We also offer waxing services for smooth, confident skin, and facials designed to cleanse,
@@ -27,9 +28,14 @@
                 <br><button class="btn-book"><a href="tel:+254112856539">Book Now</a></button>
             </p>
         </div>
+        <svg class="svg-about-after" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#FF6E01" fill-opacity="1"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
     </section>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
-        <path fill="#ffffff" fill-opacity="1"
+    <svg class="svg-before-services" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+        <path fill="#FF6E01" fill-opacity="1"
             d="M0,160L48,176C96,192,192,224,288,240C384,256,480,256,576,245.3C672,235,768,213,864,197.3C960,181,1056,171,1152,170.7C1248,171,1344,181,1392,186.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
         </path>
 
@@ -117,59 +123,10 @@
         </div>
     </section>
     <svg class="svg-services" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ffffff" fill-opacity="1"
-            d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        <path fill="#FF6E01" fill-opacity="1"
+            d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,149.3C672,128,768,96,864,85.3C960,75,1056,85,1152,90.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
-
     </svg>
-    <section class="why-us-sect">
-        <h1>Why Choose Us</h1>
-        <div class="container">
-            <div class="why-us">
-                <img src="../assets/images/quality-assurance.png" alt="Quality Service">
-                <h3>Quality Service</h3>
-                <hr>
-                <div class="overlay">
-                    <p>From the moment you step through our doors, you'll encounter a team of highly trained
-                        professionals
-                        dedicated to delivering exceptional service</p>
-                </div>
-            </div>
-
-            <div class="why-us">
-                <img src="../assets/images/ambience.png" alt="Ambience">
-                <h3>Ambience</h3>
-                <hr>
-                <div class="overlay">
-                    <p>From soothing lighting to calming music, every detail has been thoughtfully chosen to enhance
-                        your
-                        spa experience and promote a sense of peace and well-being</p>
-                </div>
-            </div>
-
-            <div class="why-us">
-                <img src="../assets/images/walk-ins.png" alt="Walk-ins">
-                <h3>Walk-ins</h3>
-                <hr>
-                <div class="overlay">
-                    <p>We welcome walk-in appointments, ensuring that you can experience our rejuvenating treatments
-                        whenever the mood strikes</p>
-                </div>
-            </div>
-
-            <div class="why-us">
-                <img src="../assets/images/privacy-us.png" alt="Privacy">
-                <h3>Privacy</h3>
-                <hr>
-                <div class="overlay">
-                    <p>Our dedicated staff respects your privacy at all times, ensuring that your personal information
-                        and
-                        preferences are handled with the utmost care</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="prices" class="our-prices">
         <h1>Our Prices</h1>
         <div class="container">
@@ -225,8 +182,61 @@
                 <hr>
 
             </div>
-            <div class="img-price">
+            <div class="img-price d-phone-none">
                 <img src="../assets/images/our-prices.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <svg class="svg-before-prices" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#ffd3b1" fill-opacity="1"
+            d="M0,32L48,74.7C96,117,192,203,288,208C384,213,480,139,576,128C672,117,768,171,864,170.7C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+    <section class="why-us-sect">
+        <h1>Why Choose Us</h1>
+        <div class="container">
+            <div class="why-us">
+                <img src="../assets/images/quality-assurance.png" alt="Quality Service">
+                <h3>Quality Service</h3>
+                <hr>
+                <div class="overlay">
+                    <p>From the moment you step through our doors, you'll encounter a team of highly trained
+                        professionals
+                        dedicated to delivering exceptional service</p>
+                </div>
+            </div>
+
+            <div class="why-us">
+                <img src="../assets/images/ambience.png" alt="Ambience">
+                <h3>Ambience</h3>
+                <hr>
+                <div class="overlay">
+                    <p>From soothing lighting to calming music, every detail has been thoughtfully chosen to enhance
+                        your
+                        spa experience and promote a sense of peace and well-being</p>
+                </div>
+            </div>
+
+            <div class="why-us">
+                <img src="../assets/images/walk-ins.png" alt="Walk-ins">
+                <h3>Walk-ins</h3>
+                <hr>
+                <div class="overlay">
+                    <p>We welcome walk-in appointments, ensuring that you can experience our rejuvenating treatments
+                        whenever the mood strikes</p>
+                </div>
+            </div>
+
+            <div class="why-us">
+                <img src="../assets/images/privacy-us.png" alt="Privacy">
+                <h3>Privacy</h3>
+                <hr>
+                <div class="overlay">
+                    <p>Our dedicated staff respects your privacy at all times, ensuring that your personal information
+                        and
+                        preferences are handled with the utmost care</p>
+                </div>
             </div>
         </div>
     </section>
@@ -335,7 +345,8 @@ const route = useRoute();
 
     & .tagline::after {
         content: "";
-        left: 43%;
+        left: 50%;
+        transform: translateX(-50%);
         position: absolute;
         top: 40px;
         width: 100px;
@@ -357,7 +368,7 @@ body {
 }
 
 section {
-    width: 93%;
+    width: 100%;
     margin: auto;
 
     & h1 {
@@ -377,6 +388,10 @@ section.about-us {
     background-position: top right;
     background-repeat: no-repeat;
     margin-top: -50px;
+
+    & .svg-about-after {
+        margin-top: -200px;
+    }
 
     & .container {
         display: flex;
@@ -448,13 +463,18 @@ section.about-us {
     left: 0;
 }
 
+.svg-before-services {
+    margin-top: -7px;
+}
+
+
 section.services {
     margin-top: -286px;
     width: 100%;
     background-image: url('../assets/images/wallpaper.png');
     background-color: rgba(255, 211, 177, 0.95);
     background-blend-mode: lighten;
-    background-size: auto;
+    background-size: cover;
     background-position: top right;
     background-repeat: no-repeat;
     padding-bottom: 200px;
@@ -463,12 +483,17 @@ section.services {
         margin: 0 !important;
         text-align: right;
     }
+
+    & h1 {
+        color: white;
+        margin-top: -50px;
+    }
 }
 
 .svg-services {
     margin: auto;
     width: 100%;
-    margin-top: -300px;
+    margin-top: -200px;
 }
 
 section .ct-container.first {
@@ -529,11 +554,17 @@ section .ct-container {
 }
 
 section.why-us-sect {
-    width: 85%;
-    background-color: white;
+    width: 100%;
+    background-color: #ffd3b1;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: auto;
+    margin-top: -150px;
+    padding-bottom: 70px;
+
+    & h1 {
+        color: #FF6E01;
+    }
 
     & .container {
         display: flex;
@@ -546,33 +577,33 @@ section.why-us-sect {
     & .why-us {
         position: relative;
         overflow: hidden;
-        flex: 1 1 calc(20% -15px);
-        max-width: calc(25% -15px);
+        flex: 1 1 calc(20% - 15px);
+        max-width: calc(25% - 50px);
         min-width: 200px;
     }
 
     & img {
         max-width: 100%;
         height: 135px;
-        width: 220px;
+        width: 250px;
     }
 
     & h3 {
         font-size: 1.7rem;
         margin: 0;
         margin: 20px 0;
-        color: var(--orange);
+        color: #FF6E01;
     }
 
     & hr {
-        border: 3px solid var(--orange);
+        border: 3px solid #FF6E01;
         border-radius: 10px;
         margin: auto;
         width: 80px;
     }
 
     & p {
-        font-size: 1.0rem;
+        font-size: 1.2rem;
         color: white;
         padding: 10px;
     }
@@ -580,7 +611,7 @@ section.why-us-sect {
     & .overlay {
         border-radius: 10px 10px 0 0;
         position: absolute;
-        border-top: 4px solid var(--orange);
+        border-top: 4px solid #FF6E01;
         top: 0;
         left: 0;
         bottom: 0;
@@ -633,16 +664,33 @@ section.why-us-sect {
 section.our-prices {
     width: 100%;
     margin: 0 !important;
+
+    & h1 {
+        background-color: white;
+    }
+}
+
+.svg-before-prices {
+    margin-top: -100px;
+}
+
+section.our-prices h1 {
+    margin: 0;
+    margin-top: -150px;
+    padding-bottom: 20px;
+    background-color: #FF6E01;
+    color: white;
 }
 
 section.our-prices .container {
     margin-top: -10px;
     padding-top: 40px;
-    background: linear-gradient(90deg, #ffffff 55%, #ffd3b1 0%);
+    /* background: linear-gradient(90deg, #ffffff 55%, #ffd3b1 0%); */
+    background-color: #FF6E01;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-around;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
 
@@ -652,7 +700,7 @@ section.our-prices .container {
     }
 
     & div.img-price {
-        margin-left: -20px;
+        margin-left: 0px;
         margin-top: 30px;
     }
 
@@ -677,17 +725,190 @@ section.our-prices .container {
 
     & .prices p {
         margin: 5px 0;
+        font-size: 1.3rem;
+    }
+
+    & hr {
+        border: 0.5px solid #ff9e53;
     }
 }
 
-@media (max-width: 768px) {
-    .why-us {
-        flex: 1 1 calc(50% - 10px);
-        max-width: calc(50% - 10px);
+@media only screen and (max-width: 600px) {
+    .d-phone-none {
+        display: none;
+    }
+
+    .landing-header .container-header {
+        width: 95%;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        margin-top: 20px;
+    }
+
+    .landing-header .container-header div {
+        padding: 30px 10px 60px 10px;
+        margin-top: 40px;
+
+        & h1 {
+            font-size: 40px;
+            margin: 7px !important;
+        }
+
+        & p {
+            font-size: 20px;
+        }
+    }
+
+    section h1 {
+        font-size: 2.3rem;
+    }
+
+    section.about-us {
+        margin-bottom: 40px;
+
+        & .container {
+            flex-direction: column;
+        }
+
+        & h1 {
+            margin-bottom: 5px;
+        }
+
+        & img {
+            width: 270px;
+            margin-bottom: 5px;
+        }
+
+        & p {
+            margin-top: -10px;
+            font-size: 1.4rem;
+            width: 90%;
+            text-align: justify;
+
+            & span {
+                color: #FF6E01;
+                font-weight: bold;
+            }
+        }
+    }
+
+    section.about-us .svg-about-after {
+        margin-top: -20px;
+    }
+
+    .svg-before-services {
+        margin-top: -45px;
+    }
+
+    section .ct-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    section .ct-container:nth-child(odd) {
+        text-align: center;
+    }
+
+    section .ct-container .img {
+        order: -1;
+        text-align: center;
+    }
+
+    section .ct-container img {
+        margin: 0 auto;
+    }
+
+    section .ct-container .num {
+        font-size: 3rem;
+    }
+
+    section .ct-container h3 {
+        font-size: 2rem;
+    }
+
+    section .ct-container .desc {
+        font-size: 1.2rem;
+    }
+
+
+    section.why-us-sect {
+        margin-top: -50px;
+
+        & .why-us {
+            flex: 1 1 calc(40% - 15px);
+            max-width: calc(45% - 50px);
+            min-width: 300px;
+        }
+
+        & img {
+            height: 185px;
+            width: 300px;
+        }
+
+        & h3 {
+            margin: 10px 0;
+        }
     }
 
     section.why-us-sect .container {
         flex-wrap: wrap;
+    }
+
+    section.services {
+        margin-top: -100px;
+        padding-bottom: 80px;
+
+        & h1 {
+            margin-bottom: 0;
+        }
+    }
+
+    .svg-services {
+        position: absolute;
+        margin-top: -80px;
+    }
+
+    .svg-before-prices {
+        margin-top: -100px;
+    }
+
+    section .ct-container {
+        width: 90%;
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        & img {
+            height: auto;
+            max-width: 80vw;
+        }
+
+        & .facials img {
+            width: 100%;
+            max-height: 80vw;
+        }
+    }
+
+    section.our-prices .container {
+        & img {
+            width: 150px;
+        }
+    }
+
+    section.our-prices .container {
+        padding-top: 20px;
+        background: #FF6E01;
+        padding-bottom: 90px;
+
+        &>div {
+            margin: 0 32px;
+            align-items: center
+        }
+    }
+
+    section.our-prices h1 {
+        margin-top: 0px;
+        padding-bottom: 0;
     }
 }
 </style>
